@@ -20,7 +20,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Build
-        run: gradlew build
+        run: gradle build
 
       - name: Test
         run: gradle check
