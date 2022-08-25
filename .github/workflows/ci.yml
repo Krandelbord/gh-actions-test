@@ -24,3 +24,12 @@ jobs:
 
       - name: Test
         run: gradle check
+
+      - name: Test report
+        uses: phoenix-actions/test-reporting@v8
+        id: test-report                     # Set ID reference for step
+        with:
+          artifact: test-results            # artifact name
+          name: Junit Tests                  # Name of the check run which will be created
+          path: '*.xml'                     # Path to test results (inside artifact .zip)
+          reporter: java-junit              # Format of test results
