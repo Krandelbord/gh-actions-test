@@ -27,6 +27,7 @@ jobs:
 
       - name: Test report
         uses: phoenix-actions/test-reporting@v8
+        if: success() || failure()
         id: test-report                     # Set ID reference for step
         with:
           artifact: test-results            # artifact name
