@@ -24,3 +24,9 @@ jobs:
 
       - name: Test
         run: gradle check
+
+      - name: Test report
+        uses: ashley-taylor/junit-report-annotations-action@1.3
+        if: always()
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
