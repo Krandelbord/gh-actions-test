@@ -24,3 +24,10 @@ jobs:
 
       - name: Test
         run: gradle check
+
+
+      - name: Publish Test Report
+        if: ${{ always() }}
+        uses: scacap/action-surefire-report@v1
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
