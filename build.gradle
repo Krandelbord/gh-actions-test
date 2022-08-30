@@ -2,4 +2,23 @@
 plugins {
     id 'java'
     id 'groovy'
+    id 'com.adarshr.test-logger' version '2.1.1'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // mandatory dependencies for using Spock
+  implementation 'org.codehaus.groovy:groovy:3.0.10'
+  testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
+  testImplementation "org.spockframework:spock-core"  
+}
+
+test {
+  useJUnitPlatform()
+  testLogging {
+    events "passed", "skipped", "failed"
+  }
 }
